@@ -1,13 +1,15 @@
 module.exports = (sequelize, DataTypes) => {
-  const Post = sequelize.define("Rating", {
-    user_id: {
+  const Post = sequelize.define("Blog", {
+    content: DataTypes.STRING,
+    title: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    blog_id: {
+    subtitle: {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    image: DataTypes.STRING,
   });
 
   Post.associate = (models) => {

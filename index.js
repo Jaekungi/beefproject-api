@@ -11,5 +11,5 @@ const errorMiddleware = require("./middlewares/error");
 app.use(notFoundMiddleware);
 app.use(errorMiddleware);
 
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 8200;
 app.listen(port, () => console.log("server running on port: " + port));
