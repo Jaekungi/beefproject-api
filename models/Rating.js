@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  const Post = sequelize.define("Rating", {
+  const Rating = sequelize.define("Rating", {
     user_id: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -10,8 +10,8 @@ module.exports = (sequelize, DataTypes) => {
     },
   });
 
-  Post.associate = (models) => {
-    Post.belongsTo(models.User, {
+  Rating.associate = (models) => {
+    Rating.belongsTo(models.User, {
       foreignKey: {
         name: "userId",
         allowNull: false,
@@ -21,5 +21,5 @@ module.exports = (sequelize, DataTypes) => {
     });
   };
 
-  return Post;
+  return Rating;
 };

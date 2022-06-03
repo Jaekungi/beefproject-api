@@ -20,12 +20,14 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: "user",
       allowNull: false,
     },
-    profileImage: DataTypes.STRING,
-    allowNull: true,
+    profileImage: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
   });
 
-  Post.associate = (models) => {
-    Post.hasMany(models.Blog, {
+  User.associate = (models) => {
+    User.hasMany(models.Blog, {
       foreignKey: {
         name: "userId",
         allowNull: false,
@@ -35,8 +37,8 @@ module.exports = (sequelize, DataTypes) => {
     });
   };
 
-  Post.associate = (models) => {
-    Post.hasMany(models.Rating, {
+  User.associate = (models) => {
+    User.hasMany(models.Rating, {
       foreignKey: {
         name: "userId",
         allowNull: false,

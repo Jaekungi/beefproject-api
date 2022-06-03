@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  const Post = sequelize.define("Blog", {
+  const Blog = sequelize.define("Blog", {
     content: DataTypes.STRING,
     title: {
       type: DataTypes.STRING,
@@ -12,8 +12,8 @@ module.exports = (sequelize, DataTypes) => {
     image: DataTypes.STRING,
   });
 
-  Post.associate = (models) => {
-    Post.belongsTo(models.User, {
+  Blog.associate = (models) => {
+    Blog.belongsTo(models.User, {
       foreignKey: {
         name: "userId",
         allowNull: false,
@@ -23,5 +23,5 @@ module.exports = (sequelize, DataTypes) => {
     });
   };
 
-  return Post;
+  return Blog;
 };
