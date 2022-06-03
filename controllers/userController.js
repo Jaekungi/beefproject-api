@@ -1,6 +1,5 @@
 const fs = require("fs");
 const { User } = require("../models");
-// const FriendService = require("../services/friendService");
 const cloudinary = require("../utils/cloudinary");
 const createError = require("../utils/createError");
 
