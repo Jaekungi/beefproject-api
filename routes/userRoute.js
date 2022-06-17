@@ -1,5 +1,5 @@
 const express = require("express");
-// const userController = require("../controllers/userController");
+const userController = require("../controllers/userController");
 // const postController = require("../controllers/postController");
 
 const router = express.Router();
@@ -10,6 +10,6 @@ router.patch(
   upload.fields([{ name: "profilePic", maxCount: 1 }]),
   userController.updateProfile
 );
-router.get("/posts", postController.getUserPost);
+router.get("/user", userController.getUserPost);
 
 module.exports = router;
