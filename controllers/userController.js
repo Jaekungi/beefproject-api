@@ -1,12 +1,29 @@
+const { create } = require("domain");
 const fs = require("fs");
 const { User } = require("../models");
 const cloudinary = require("../utils/cloudinary");
 const createError = require("../utils/createError");
 
 exports.getMe = async (req, res) => {
-  const user = JSON.parse(JSON.stringify(req.user));
+  const { id } = req.user;
+  const user = await User.findOne({
+    where: id,
+  });
+  if (!user) {
+    createError("User Not Found", 400);
+  }
 
   res.json({ user });
+};
+
+exports.getUserPost = async (req, res, next) => {
+  try {
+    if (!req.files) {
+      create("Post or Blog not found", 401);
+    }
+  } catch (err) {
+    next(err);
+  }
 };
 
 exports.updateProfile = async (req, res, next) => {

@@ -14,6 +14,7 @@ const genToken = (payload) =>
 exports.login = async (req, res, next) => {
   try {
     const { username, password } = req.body;
+
     const user = await User.findOne({
       where: {
         username: username,
