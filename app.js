@@ -24,5 +24,5 @@ app.use(errorMiddleware);
 // app.use()
 
 const port = process.env.PORT || 8200;
-sequelize.sync({ force: true });
+// sequelize.sync({ force: true });
 app.listen(port, () => console.log("server running on port: " + port));

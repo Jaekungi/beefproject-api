@@ -10,6 +10,6 @@ router.get("/me", userController.getMe);
 //   upload.fields([{ name: "profilePic", maxCount: 1 }]),
 //   userController.updateProfile
 // );
-// router.get("/user", userController.getUserPost);
+router.get("/user", userController.getUserPost);
 
 module.exports = router;
