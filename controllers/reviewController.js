@@ -34,6 +34,8 @@ exports.createReview = async (req, res, next) => {
 
 exports.getReview = async (req, res, next) => {
   try {
+    console.log(req.user);
+    const { id } = req.user;
     res.json({ test: "test" });
   } catch (err) {
     next(err);

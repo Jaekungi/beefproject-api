@@ -1,3 +1,4 @@
+const { User, Review } = require("./index");
 module.exports = (sequelize, DataTypes) => {
   const Review = sequelize.define("Review", {
     content: DataTypes.STRING,
@@ -17,14 +18,14 @@ module.exports = (sequelize, DataTypes) => {
     },
   });
 
-  // Review.associate = (models) => {
-  //   Review.belongsTo(models.User, {
-  //     foreignKey: {
-  //       name: "userId",
-  //       allowNull: false,
-  //     },
-  //   });
-  // };
+  Review.associate = (models) => {
+    Review.belongsTo(models.User, {
+      foreignKey: {
+        name: "userId",
+        allowNull: false,
+      },
+    });
+  };
 
   return Review;
 };

@@ -8,12 +8,12 @@ module.exports = async (req, res, next) => {
     console.log(req.headers);
     console.log(authorization);
     if (!authorization || !authorization.startsWith("Bearer ")) {
-      createError("you are unauthorized", 401);
+      createError("you are unauthorized1", 401);
     }
 
     const token = authorization.split(" ")[1];
     if (!token) {
-      createError("you are unauthorized", 401);
+      createError("you are unauthorized2", 401);
     }
 
     const payload = jwt.verify(token, process.env.JWT_SECRET_KEY);
@@ -24,8 +24,9 @@ module.exports = async (req, res, next) => {
       },
     });
     if (!user) {
-      createError("you are unauthorized", 401);
+      createError("you are unauthorized3", 401);
     }
+    console.log(user);
     req.user = user;
     next();
   } catch (err) {
